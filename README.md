@@ -1,4 +1,4 @@
-<img src="banner.png" alt="AI-Assisted Sprint Framework Logo" height="100">
+<img src="banner.png" alt="AI-Assisted Sprint Framework Logo" height="250">
 
 # 🏗️ AI-Assisted Sprint Framework
 
