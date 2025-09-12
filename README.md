@@ -1,3 +1,5 @@
+<img src="banner.png" alt="AI-Assisted Sprint Framework Logo" height="100">
+
 # 🏗️ AI-Assisted Sprint Framework
 
 This framework lets a human user and an AI agent run software development sprints in a **structured, auditable, and predictable** way.
