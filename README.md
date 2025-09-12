@@ -173,3 +173,28 @@ in order, with their messages.
 - Keep Playbooks in `docs/sprints/` for history.  
 - The AI **must not** merge or open PRs.  
 - Extend this framework with your project’s conventions (linting, CI rules, DoD checklists).  
+
+---
+
+## 📂 Recommended Folder Structure
+
+Use this layout to keep framework files separate from Sprint history:
+
+- `docs/framework/` → Permanent reference files (templates, guides, rules).  
+- `docs/sprints/` → All generated Sprint Playbooks (kept for history/audit).  
+
+**Example:**
+```
+docs/
+├── framework/                      # The permanent framework
+│   ├── sprint-playbook-template.md
+│   ├── how-to-use-sprint-playbook-template.md
+│   ├── sprint-implementation-guidelines.md
+│   ├── sprint-implementation-quick-reference.md
+│   └── sprint-playbook-example.md
+└── sprints/                        # All actual Sprint Playbooks
+    ├── sprint-01-initial-setup.md
+    ├── sprint-02-refactor-api.md
+    └── sprint-03-authentication.md
+```
+
