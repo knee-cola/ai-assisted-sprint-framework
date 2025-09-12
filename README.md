@@ -184,17 +184,19 @@ Use this layout to keep framework files separate from Sprint history:
 - `docs/sprints/` → All generated Sprint Playbooks (kept for history/audit).  
 
 **Example:**
-```
-docs/
-├── framework/                      # The permanent framework
-│   ├── sprint-playbook-template.md
-│   ├── how-to-use-sprint-playbook-template.md
-│   ├── sprint-implementation-guidelines.md
-│   ├── sprint-implementation-quick-reference.md
+```plaintext
+.
+├── README.md                              # Human-facing overview + usage guide
+├──docs/
+│   ├── framework/                         # The permanent framework
+│   │   ├── sprint-playbook-template.md
+│   │   ├── how-to-use-sprint-playbook-template.md
+│   │   ├── sprint-implementation-guidelines.md
+│   │   ├── sprint-implementation-quick-reference.md
 │   └── sprint-playbook-example.md
-└── sprints/                        # All actual Sprint Playbooks
-    ├── sprint-01-initial-setup.md
-    ├── sprint-02-refactor-api.md
-    └── sprint-03-authentication.md
+│       └── sprints/                        # All actual Sprint Playbooks
+│           ├── sprint-01-initial-setup.md
+│           ├── sprint-02-refactor-api.md
+│           └── sprint-03-authentication.md
 ```
 
