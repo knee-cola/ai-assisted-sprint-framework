@@ -86,7 +86,6 @@ The Sprint is complete when:
 * [ ] Code is committed and pushed on branch `[feature/sprint-<id>]`.
 * [ ] Documentation is updated.
 * [ ] Sprint status updated to **done**.
-* [ ] Branch is merged into main.
 
 ---
 

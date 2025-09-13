@@ -11,7 +11,7 @@ This is an **example Sprint Playbook**.
 ## 0. Sprint Status
 
 ```
-Status: 🔲 not started
+Status: 🛠️ implementing US-3
 ```
 
 ---
@@ -85,9 +85,9 @@ Status: 🔲 not started
 
 | Story ID | Title                | Description                                               | Acceptance Criteria                                                  | Definition of Done                                       | Assignee | Status |
 | -------- | -------------------- | --------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------- | -------- | ------ |
-| US-1     | User Registration    | Implement `/register` API to create users.                | Sending POST `/register` with username+password creates user in DB.  | Endpoint implemented, password hashed, unit tests added. | AI-Agent | 🔲 todo |
-| US-2     | User Login           | Implement `/login` API to issue JWT token.                | Sending POST `/login` returns JWT token when credentials are valid.  | Endpoint implemented, tests added, token expires in 1h.  | AI-Agent | 🔲 todo |
-| US-3     | JWT Middleware       | Add backend middleware to verify JWT on protected routes. | Protected endpoints return 401 if JWT is invalid or missing.         | Middleware added, all tests passing.                     | AI-Agent | 🔲 todo |
+| US-1     | User Registration    | Implement `/register` API to create users.                | Sending POST `/register` with username+password creates user in DB.  | Endpoint implemented, password hashed, unit tests added. | AI-Agent | ✅ done |
+| US-2     | User Login           | Implement `/login` API to issue JWT token.                | Sending POST `/login` returns JWT token when credentials are valid.  | Endpoint implemented, tests added, token expires in 1h.  | AI-Agent | ✅ done |
+| US-3     | JWT Middleware       | Add backend middleware to verify JWT on protected routes. | Protected endpoints return 401 if JWT is invalid or missing.         | Middleware added, all tests passing.                     | AI-Agent | 🚧 in progress |
 | US-4     | Frontend Login Form  | Add login form in React UI.                               | User can log in, token is stored in localStorage.                    | Component implemented, manual test successful.           | AI-Agent | 🔲 todo |
 | US-5     | Logout Functionality | Implement logout button + backend blacklist.              | Clicking logout clears token and backend rejects blacklisted tokens. | Code implemented, unit + integration tests added.        | AI-Agent | 🔲 todo |
 
@@ -149,7 +149,6 @@ The Sprint is complete when:
 * [ ] All user stories meet their individual DoD.
 * [ ] Code compiles and passes automated tests.
 * [ ] Feature branch `feature/sprint-07-authentication` pushed to remote.
-* [ ] Branch merged into `main`.
 * [ ] Documentation (`README.md`) updated with authentication usage.
 * [ ] Sprint status updated to **done**.
 
@@ -158,5 +157,5 @@ The Sprint is complete when:
 ## 8. Metrics / Tracking (Optional)
 
 * **Planned Story Points:** 20
-* **Completed Story Points:** TBD
+* **Completed Story Points:** 12
 * **Velocity Trend:** Last Sprint delivered 18 SP.
