@@ -114,11 +114,6 @@ Your role as AI agent is to:
 
 ---
 
-### 9. Metrics (Optional)
-
-* Estimate story points (if applicable).
-* Add a placeholder for velocity tracking.
-
 ---
 
 ## ⚠️ Guardrail Against Overfitting

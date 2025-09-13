@@ -66,7 +66,7 @@
 
 * All stories = `✅ done`
 * Sprint status = `✅ done`
-* Metrics updated (Completed Story Points)
+* Final status updates completed
 * Branch ready, tests/docs complete
 * AI stops — user merges
 

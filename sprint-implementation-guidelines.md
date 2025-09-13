@@ -113,7 +113,7 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 ### 2.5 End-of-Sprint Update
 
 * Update Sprint status → `done`.
-* Fill in Completed Story Points in metrics.
+* Update Playbook with final status changes.
 * Stop execution.
 
 ---
@@ -233,7 +233,7 @@ Sprint is complete when:
 
 * All user stories = `done`.
 * Sprint status = `done`.
-* Completed Story Points filled in metrics.
+* Final status updates completed.
 * Code committed to Sprint branch.
 * Docs and comments updated.
 * Tests passing (when applicable).

@@ -24,7 +24,6 @@ Status: 🛠️ implementing US-3
 * **Sprint Goal:** Implement user authentication (login/logout) using JWT tokens.
 * **Team/Agent Responsible:** AI-Agent-v1.2
 * **Branch Name (Git):** feature/sprint-07-authentication
-* **Capacity Estimate:** 20 story points
 
 ---
 
@@ -154,8 +153,3 @@ The Sprint is complete when:
 
 ---
 
-## 8. Metrics / Tracking (Optional)
-
-* **Planned Story Points:** 20
-* **Completed Story Points:** 12
-* **Velocity Trend:** Last Sprint delivered 18 SP.

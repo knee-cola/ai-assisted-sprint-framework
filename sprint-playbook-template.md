@@ -14,7 +14,6 @@ Status: [🔲 not started | 🚧 in progress | 🛠️ implementing <user story 
 * **Sprint Goal:** \[clear and concise goal statement]
 * **Team/Agent Responsible:** \[AI agent name/version]
 * **Branch Name (Git):** \[feature/sprint-<id>]
-* **Capacity Estimate:** \[e.g., 20 story points]
 
 ---
 
@@ -89,8 +88,3 @@ The Sprint is complete when:
 
 ---
 
-## 8. Metrics / Tracking (Optional)
-
-* **Planned Story Points:** \[number]
-* **Completed Story Points:** \[number]
-* **Velocity Trend:** \[optional note or graph reference]
