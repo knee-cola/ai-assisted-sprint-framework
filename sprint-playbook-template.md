@@ -2,9 +2,8 @@
 ## 0. Sprint Status
 
 ```
-Status: [not started | in progress | implementing <user story id> | documenting | done]
+Status: [🔲 not started | 🚧 in progress | 🛠️ implementing <user story id> | 📝 documenting | ✅ done]
 ```
-
 ---
 
 ## 1. Sprint Metadata
@@ -47,10 +46,10 @@ Each story represents a **unit of work** that can be developed and tested indepe
 
 | Story ID | Title          | Description                              | Acceptance Criteria          | Definition of Done                               | Assignee    | Status |
 | -------- | -------------- | ---------------------------------------- | ---------------------------- | ------------------------------------------------ | ----------- | ------ |
-| US-1     | \[short title] | \[detailed description of functionality] | \[conditions for acceptance] | \[implemented, tested, docs updated, lint clean] | \[AI agent] | todo   |
-| US-2     | ...            | ...                                      | ...                          | ...                                              | ...         | todo   |
+| US-1     | \[short title] | \[detailed description of functionality] | \[conditions for acceptance] | \[implemented, tested, docs updated, lint clean] | \[AI agent] | 🔲  todo |
+| US-2     | ...            | ...                                      | ...                          | ...                                              | ...         | 🔲 todo |
 
-**Status options:** `todo`, `in progress`, `done`
+**Status options:** `🔲 todo`, `🚧 in progress`, `✅ done`
 
 ---
 
