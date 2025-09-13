@@ -12,14 +12,16 @@
 
 ## 2. Playbook Updates
 
-* Update **User Story status**: `todo` → `in progress` → `done`
+* Update **User Story status**: `🔲 todo` → `🚧 in progress` → `✅ done`
 * Update **Sprint status** at top of Playbook:
 
   ```
-  [not started | in progress | implementing US-# | documenting | done]
+  [🔲 not started | 🚧 in progress | 🛠️ implementing <user story id> | 📝 documenting | ✅ done]
   ```
 * Status changes **committed with code changes**
 * Playbook lives in `docs/sprints/sprint-<id>.md`
+- **First story commit:** set Sprint → `implementing US-#` and story → `🚧 in progress` (same commit as first code).
+- **Final story commit:** set story → `✅ done` and tick any AI-owned DoD items that became true (same commit).
 
 ---
 
@@ -62,8 +64,9 @@
 
 ## 7. Wrap-Up
 
-* All stories = `done`
-* Sprint status = `done`
+* All stories = `✅ done`
+* Sprint status = `✅ done`
 * Metrics updated (Completed Story Points)
 * Branch ready, tests/docs complete
 * AI stops — user merges
+

@@ -51,7 +51,17 @@ Your role as AI agent is to:
 
 ---
 
-### 3. Define Desired State
+### 3. Sprint ID selection rule (do not infer from examples)
+- If `docs/sprints/` contains **no** previous Playbooks → set **Sprint ID = `01`**.
+- Otherwise:
+  1) List files matching `docs/sprints/sprint-??-*.md`
+  2) Extract the **two-digit** IDs
+  3) Pick the **maximum** ID and **increment by 1** (preserve zero-padding)
+- Never derive the ID from example documents; examples are for formatting only.
+
+---
+
+### 4. Define Desired State
 
 * Translate user goal into **target outcomes**:
 
@@ -63,7 +73,7 @@ Your role as AI agent is to:
 
 ---
 
-### 4. Break Down Into User Stories
+### 5. Break Down Into User Stories
 
 * Split the Sprint goal into **small, independent units of work** (user stories).
 * Each story must:
@@ -76,7 +86,7 @@ Your role as AI agent is to:
 
 ---
 
-### 5. Add Technical Instructions
+### 6. Add Technical Instructions
 
 * Include **snippets, design patterns, and coding style rules** that help converge faster.
 * Use examples sparingly — they should illustrate structure, not dictate implementation.
@@ -84,14 +94,14 @@ Your role as AI agent is to:
 
 ---
 
-### 6. Capture Risks and Dependencies
+### 7. Capture Risks and Dependencies
 
 * List potential **risks** (technical, integration, scope-related).
 * List **dependencies** (modules, libraries, APIs, data sources).
 
 ---
 
-### 7. Apply Definition of Done (DoD)
+### 8. Apply Definition of Done (DoD)
 
 * Attach a DoD to each **user story**.
 * Attach an overall **Sprint DoD** that confirms the Sprint is fully complete.
@@ -104,7 +114,7 @@ Your role as AI agent is to:
 
 ---
 
-### 8. Metrics (Optional)
+### 9. Metrics (Optional)
 
 * Estimate story points (if applicable).
 * Add a placeholder for velocity tracking.

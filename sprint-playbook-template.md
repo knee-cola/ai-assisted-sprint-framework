@@ -84,9 +84,9 @@ The Sprint is complete when:
 * [ ] All user stories meet their individual Definition of Done.
 * [ ] Code compiles and passes automated tests.
 * [ ] Code is committed and pushed on branch `[feature/sprint-<id>]`.
-* [ ] Branch is merged into main.
 * [ ] Documentation is updated.
 * [ ] Sprint status updated to **done**.
+* [ ] Branch is merged into main.
 
 ---
 

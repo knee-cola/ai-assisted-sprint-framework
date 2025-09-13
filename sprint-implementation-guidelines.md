@@ -47,6 +47,9 @@ They ensure consistent execution, traceability, and alignment with user expectat
 * Branch created from `main` and kept up to date via rebase or merge.
 * `main` remains protected.
 
+**Sprint ID source of truth:** The Sprint ID **must** follow the “Sprint ID selection rule” in the How-to guide.  
+If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increment the greatest existing two-digit ID (keep zero-padding).
+
 ### 1.4 Commit & Push Policy
 
 * Run **linters/tests** before committing.
@@ -77,12 +80,30 @@ They ensure consistent execution, traceability, and alignment with user expectat
 * Keep the top-level Sprint status current:
 
   ```
-  Status: [not started | in progress | implementing <user story id> | documenting | done]
+  Status: [🔲 not started | 🚧 in progress | 🛠️ implementing <user story id> | 📝 documenting | ✅ done]
   ```
 
 ### 2.3 Commit & Status Sync
 
-* Update Playbook status **in the same commit** as related code changes.
+**Strict choreography**
+
+- **First commit of a story**  
+  Include the first code changes for `US-#` **and** update the Playbook in the same commit:
+  - Sprint status → `implementing US-#`
+  - Story `US-#` status → `in progress`
+
+- **Final commit of a story**  
+  Include the completing code changes for `US-#` **and** update the Playbook in the same commit:
+  - Story `US-#` status → `done`
+  - Tick any **AI-responsible** DoD items that became true in this commit (see below)
+
+- **DoD checkbox updates**  
+  Tick AI-owned DoD items **in the same commit** that makes them true (e.g., tests now pass, docs updated, sprint status set to `done`, branch pushed).  
+  The “Branch merged into main” checkbox is **USER-only** — the AI must **never** tick it.
+
+- **No status-only commits**  
+  Avoid standalone “status update” commits. If a previous commit forgot a status/DoD tick, include it in the **very next** code commit for that story.
+
 
 ### 2.4 Location & Traceability
 
