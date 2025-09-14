@@ -15,7 +15,6 @@ This framework lets a human user and an AI agent run software development sprint
 - **sprint-playbook-template.md** – Markdown structure for defining a Sprint.  
 - **how-to-use-sprint-playbook-template.md** – AI-facing guide for generating Playbooks.  
 - **sprint-implementation-guidelines.md** – AI-facing rules for execution.  
-- **sprint-playbook-example.md** – Example Playbook (formatting illustration only).  
 
 ---
 
@@ -186,11 +185,10 @@ Use this layout to keep framework files separate from Sprint history:
 │   ├── framework/                         # The permanent framework
 │   │   ├── sprint-playbook-template.md
 │   │   ├── how-to-use-sprint-playbook-template.md
-│   │   ├── sprint-implementation-guidelines.md
-│   └── sprint-playbook-example.md
-│       └── sprints/                        # All actual Sprint Playbooks
-│           ├── sprint-01-initial-setup.md
-│           ├── sprint-02-refactor-api.md
-│           └── sprint-03-authentication.md
+│   │   └── sprint-implementation-guidelines.md
+│   └── sprints/                           # All actual Sprint Playbooks
+│       ├── sprint-01-initial-setup.md
+│       ├── sprint-02-refactor-api.md
+│       └── sprint-03-authentication.md
 ```
 
