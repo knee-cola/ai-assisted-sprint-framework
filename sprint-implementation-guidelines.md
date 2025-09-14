@@ -120,6 +120,8 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
   Include the completing code changes for `US-#` **and** update the Playbook in the same commit:
   - Story `US-#` status → `✅ done`
   - Tick any **AI-responsible** DoD items that became true in this commit (see below)
+  
+  **CRITICAL**: This final commit marks story completion. Do NOT proceed to the next story until this commit is made and pushed.
 
 - **DoD checkbox updates**  
   Tick AI-responsible DoD items **in the same commit** that makes them true:
@@ -256,11 +258,13 @@ For each LUW in the story:
 5. Wait for user confirmation that all manual tests pass
 6. Update story status to `✅ done`
 7. Tick completed AI-responsible DoD checkboxes 
-8. Commit these playbook updates
+8. Commit these playbook updates with final code changes for the story
 9. Push final commit
 
+**CRITICAL**: A story is NOT complete until playbook status shows `✅ done` and changes are committed.
+
 **STEP 4: Next Story or Block Handling**
-- If current story is `✅ done`: proceed to STEP 1 for next story
+- If current story playbook status is `✅ done`: proceed to STEP 1 for next story
 - If current story is `🚫 blocked`: STOP execution, notify user, wait for instructions
 - If no more stories and all are `✅ done`: proceed to End-of-Sprint workflow
 
