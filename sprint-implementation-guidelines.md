@@ -52,15 +52,13 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 ### 1.4 Commit & Push Policy
 
-* Run **linters/tests** before committing.
+* Run built and fix issues before committing.
 * Commit and push regularly (at least daily).
-* Signed commits if required by repository settings.
 
 ### 1.5 PR / Merge Rules
 
 * The AI agent **must not merge or open PRs**.
 * The AI’s responsibility ends with:
-
   * Implementing all user stories.
   * Committing changes to the Sprint branch.
   * Ensuring the branch passes all tests.
@@ -71,9 +69,8 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 ## 2. Playbook Status Updating
 
 ### 2.1 User Stories
-
-* Update each story’s `Status` field (`todo` → `in progress` → `done`).
-* Mark `done` only when the story’s **DoD** is fully satisfied.
+* Update each story’s `Status` field (`🔲 todo` → `🚧 in progress` → `✅ done`).
+* Mark `✅ done` only when the story’s **DoD** is fully satisfied.
 
 ### 2.2 Sprint Status (Top-Level)
 
@@ -94,13 +91,12 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 - **Final commit of a story**  
   Include the completing code changes for `US-#` **and** update the Playbook in the same commit:
-  - Story `US-#` status → `done`
+  - Story `US-#` status → `✅ done`
   - Tick any **AI-responsible** DoD items that became true in this commit (see below)
 
 - **DoD checkbox updates**  
-  Tick AI-owned DoD items **in the same commit** that makes them true (e.g., tests now pass, docs updated, sprint status set to `done`, branch pushed).  
-  The “Branch merged into main” checkbox is **USER-only** — the AI must **never** tick it.
-
+  Tick AI-owned DoD items **in the same commit** that makes them true (e.g., tests now pass, docs updated, sprint status set to `✅ done`, branch pushed).  
+  
 - **No status-only commits**  
   Avoid standalone “status update” commits. If a previous commit forgot a status/DoD tick, include it in the **very next** code commit for that story.
 
@@ -112,7 +108,7 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 ### 2.5 End-of-Sprint Update
 
-* Update Sprint status → `done`.
+* Update Sprint status → `✅ done`.
 * Update Playbook with final status changes.
 * Stop execution.
 
@@ -144,7 +140,6 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 ### 3.4 Test Execution
 
 * Run relevant tests locally before committing.
-* Ensure CI remains green; note unrelated failures as risks.
 
 ### 3.5 Prohibited
 
@@ -168,15 +163,15 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 ### 4.3 Completion
 
-* Mark story `done` only when DoD is met.
+* Mark story `✅ done` only when DoD is met.
 
 ### 4.4 Sequential Integrity
 
-* Do not begin next story until current is `done` or `blocked`.
+* Do not begin next story until current is `✅ done` or `blocked`.
 
 ### 4.5 End-of-Sprint
 
-* After final story: update status → `documenting`, finalize docs/tests, then → `done`.
+* After final story: update status → `📝 documenting`, finalize docs/tests, then → `✅ done`.
 * Stop execution; user handles merge.
 
 ---
@@ -231,8 +226,8 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 Sprint is complete when:
 
-* All user stories = `done`.
-* Sprint status = `done`.
+* All user stories = `📝 done`.
+* Sprint status = `📝 done`.
 * Final status updates completed.
 * Code committed to Sprint branch.
 * Docs and comments updated.
@@ -242,7 +237,6 @@ Sprint is complete when:
 
 * AI stops execution.
 * Sprint branch remains unmerged.
-* User reviews and merges branch into `main`.
 
 ### 7.3 Final Note
 
