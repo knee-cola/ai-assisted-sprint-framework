@@ -2,7 +2,7 @@
 ## 0. Sprint Status
 
 ```
-Status: [🔲 not started | 🚧 in progress | 🛠️ implementing <user story id> | 📝 documenting | ✅ done]
+Status: [🔲 not started | 🚧 in progress | 🛠️ implementing <user story id> | ✅ done]
 ```
 ---
 
@@ -48,7 +48,7 @@ Each story represents a **unit of work** that can be developed and tested indepe
 | US-1     | \[short title] | \[detailed description of functionality] | \[conditions for acceptance] | \[implemented, tested, docs updated, lint clean] | \[AI agent] | 🔲  todo |
 | US-2     | ...            | ...                                      | ...                          | ...                                              | ...         | 🔲 todo |
 
-**Status options:** `🔲 todo`, `🚧 in progress`, `✅ done`
+**Status options:** `🔲 todo`, `🚧 in progress`, `🚫 blocked`, `✅ done`
 
 ---
 
@@ -80,11 +80,15 @@ Each story represents a **unit of work** that can be developed and tested indepe
 
 The Sprint is complete when:
 
+**AI-Responsible Items** (AI agent can verify and tick):
 * [ ] All user stories meet their individual Definition of Done.
 * [ ] Code compiles and passes automated tests.
 * [ ] Code is committed and pushed on branch `[feature/sprint-<id>]`.
 * [ ] Documentation is updated.
-* [ ] Sprint status updated to **done**.
+* [ ] Sprint status updated to `✅ done`.
+
+**User-Only Items** (Only user can verify and tick):
+* [ ] Branch is merged into main.
 
 ---
 

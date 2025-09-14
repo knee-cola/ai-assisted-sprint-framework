@@ -90,6 +90,8 @@ Status: 🛠️ implementing US-3
 | US-4     | Frontend Login Form  | Add login form in React UI.                               | User can log in, token is stored in localStorage.                    | Component implemented, manual test successful.           | AI-Agent | 🔲 todo |
 | US-5     | Logout Functionality | Implement logout button + backend blacklist.              | Clicking logout clears token and backend rejects blacklisted tokens. | Code implemented, unit + integration tests added.        | AI-Agent | 🔲 todo |
 
+**Status options:** `🔲 todo`, `🚧 in progress`, `🚫 blocked`, `✅ done`
+
 ---
 
 ## 5. Technical Instructions
@@ -145,11 +147,15 @@ Status: 🛠️ implementing US-3
 
 The Sprint is complete when:
 
-* [ ] All user stories meet their individual DoD.
+**AI-Responsible Items** (AI agent can verify and tick):
+* [ ] All user stories meet their individual Definition of Done.
 * [ ] Code compiles and passes automated tests.
-* [ ] Feature branch `feature/sprint-07-authentication` pushed to remote.
-* [ ] Documentation (`README.md`) updated with authentication usage.
-* [ ] Sprint status updated to **done**.
+* [ ] Code is committed and pushed on branch `feature/sprint-07-authentication`.
+* [ ] Documentation is updated.
+* [ ] Sprint status updated to `✅ done`.
+
+**User-Only Items** (Only user can verify and tick):
+* [ ] Branch is merged into main.
 
 ---
 
