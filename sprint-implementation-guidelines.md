@@ -52,7 +52,7 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 ### 1.4 Commit & Push Policy
 
-* Run built and fix issues before committing.
+* Run build and fix issues before committing.
 * Commit and push regularly (at least daily).
 
 ### 1.5 PR / Merge Rules
@@ -86,8 +86,8 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 - **First commit of a story**  
   Include the first code changes for `US-#` **and** update the Playbook in the same commit:
-  - Sprint status → `implementing US-#`
-  - Story `US-#` status → `in progress`
+  - Sprint status → `🛠️ implementing US-#`
+  - Story `US-#` status → `🚧 in progress`
 
 - **Final commit of a story**  
   Include the completing code changes for `US-#` **and** update the Playbook in the same commit:
@@ -171,7 +171,7 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 ### 4.5 End-of-Sprint
 
-* After final story: update status → `📝 documenting`, finalize docs/tests, then → `✅ done`.
+* After final story: finalize docs/tests, then update status → `✅ done`.
 * Stop execution; user handles merge.
 
 ---
@@ -226,8 +226,8 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 Sprint is complete when:
 
-* All user stories = `📝 done`.
-* Sprint status = `📝 done`.
+* All user stories = `✅ done`.
+* Sprint status = `✅ done`.
 * Final status updates completed.
 * Code committed to Sprint branch.
 * Docs and comments updated.
