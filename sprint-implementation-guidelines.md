@@ -5,6 +5,33 @@ They ensure consistent execution, traceability, and alignment with user expectat
 
 ---
 
+## 0. Key Definitions
+
+**Logical Unit of Work (LUW)**: A single, cohesive code change that:
+- Implements one specific functionality 
+- Can be described in 1-2 sentences
+- Passes all relevant tests
+- Can be committed independently
+
+**Blocked Status**: A user story cannot proceed due to:
+- Missing external dependencies 
+- Conflicting requirements
+- Failed tests that cannot be auto-fixed
+- Missing user clarification
+
+**AI-Responsible DoD Items**: Checkboxes the AI can verify and tick:
+- Code compiles and passes tests
+- Code committed and pushed to branch
+- Documentation updated
+- Sprint status updated to done
+
+**User-Only DoD Items**: Checkboxes only the user can tick:
+- Branch merged into main
+- Production deployment completed
+- External integrations verified
+
+---
+
 ## 1. Git & Version Control Rules
 
 ### 1.1 Commit Granularity
@@ -12,7 +39,7 @@ They ensure consistent execution, traceability, and alignment with user expectat
 * Commit after each **logical unit of work (LUW)**.
 * A user story may span multiple commits.
 * Do not mix unrelated changes (e.g., no “feature + formatting” in one commit).
-* Include tests for the LUW in the same commit when feasible.
+* Include tests for the LUW in the same commit if the story's DoD requires tests.
 * Local WIP commits may be squashed before delivery, but history must remain clear.
 
 ### 1.2 Commit Message Style
@@ -77,7 +104,7 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 * Keep the top-level Sprint status current:
 
   ```
-  Status: [🔲 not started | 🚧 in progress | 🛠️ implementing <user story id> | 📝 documenting | ✅ done]
+  Status: [🔲 not started | 🚧 in progress | 🛠️ implementing <user story id> | ✅ done]
   ```
 
 ### 2.3 Commit & Status Sync
@@ -95,7 +122,16 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
   - Tick any **AI-responsible** DoD items that became true in this commit (see below)
 
 - **DoD checkbox updates**  
-  Tick AI-owned DoD items **in the same commit** that makes them true (e.g., tests now pass, docs updated, sprint status set to `✅ done`, branch pushed).  
+  Tick AI-responsible DoD items **in the same commit** that makes them true:
+  - ✅ Code compiles and passes automated tests
+  - ✅ Code is committed and pushed on branch  
+  - ✅ Documentation is updated
+  - ✅ Sprint status updated to done
+  
+  **NEVER tick user-only DoD items** such as:
+  - ❌ Branch is merged into main
+  - ❌ Production deployment completed
+  - ❌ External systems integration verified
   
 - **No status-only commits**  
   Avoid standalone “status update” commits. If a previous commit forgot a status/DoD tick, include it in the **very next** code commit for that story.
@@ -119,8 +155,8 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 ### 3.1 Style Guides
 
 * Follow project’s existing style guides.
-* **Light deviations allowed** only when they produce a materially better outcome.
-* Document rationale for deviations in commit body.
+* Follow existing style guides exactly unless deviation prevents story completion.
+* If deviation is necessary, document rationale in commit body and ask user for approval.
 * Do not mix stylistic mass-changes with functional code.
 
 ### 3.2 Code Quality
@@ -132,8 +168,9 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 ### 3.3 Testing Policy
 
-* **Unit tests**: required when appropriate (backend logic, utilities, reducers, etc.).
-* UI-only changes may omit tests if not meaningful.
+* **Unit tests**: required for all backend logic, utilities, data processing, and business logic.
+* **UI tests**: required only if the story's DoD explicitly mentions testing UI behavior.
+* Pure styling changes (CSS-only) do not require tests.
 * **Integration/E2E tests**: explicitly out of scope.
 * Maintain existing test coverage levels.
 
@@ -151,28 +188,51 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 ## 4. Execution Flow
 
-### 4.1 Story Order
+### 4.1 Story Execution Workflow
 
-* Work **sequentially** through stories in Playbook order.
-* Skip only if blocked; mark as `blocked` in Playbook, then continue.
+**STEP 1: Start Story**
+1. Verify previous story is `✅ done` or `blocked`
+2. Change story status from `🔲 todo` to `🚧 in progress`
+3. Change sprint status to `🛠️ implementing US-#`
+4. Commit these playbook changes with first code changes for the story
 
-### 4.2 Within a Story
+**STEP 2: Implement Story (Loop)**
+For each LUW in the story:
+1. Write code for one logical unit of work
+2. Write tests if required by story DoD
+3. Run tests and fix any failures
+4. Commit LUW with conventional commit message including "Refs: US-#"
+5. Push commit to branch
 
-* Implement in **LUWs**, each committed separately.
-* Update Playbook status in same commit.
+**STEP 3: Complete Story**
+1. Verify all story acceptance criteria are met
+2. Verify all AI-responsible DoD items are complete
+3. Run final test suite 
+4. Update story status to `✅ done`
+5. Tick completed AI-responsible DoD checkboxes 
+6. Commit these playbook updates
+7. Push final commit
 
-### 4.3 Completion
+**STEP 4: Next Story**
+- Proceed to STEP 1 for next story
+- If no more stories, proceed to End-of-Sprint workflow
 
-* Mark story `✅ done` only when DoD is met.
+### 4.2 End-of-Sprint Workflow
 
-### 4.4 Sequential Integrity
+**STEP 1: Final Verification**
+1. Verify all stories are `✅ done`
+2. Run complete test suite
+3. Update any remaining documentation
 
-* Do not begin next story until current is `✅ done` or `blocked`.
+**STEP 2: Sprint Completion**  
+1. Update sprint status to `✅ done`
+2. Tick any remaining AI-responsible DoD items
+3. Commit final changes
+4. Push branch to remote
 
-### 4.5 End-of-Sprint
-
-* After final story: finalize docs/tests, then update status → `✅ done`.
-* Stop execution; user handles merge.
+**STEP 3: Stop Execution**
+- Report sprint completion to user
+- Do not merge branch or open PRs
 
 ---
 
@@ -197,26 +257,54 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 ## 6. Failure & Error Handling
 
-### 6.1 General Rule
+### 6.1 Error Response Protocol
 
-* If blocked, **stop and ask user** for clarification.
-* Do not attempt auto-fixes or speculative changes.
+**MANDATORY STEPS when encountering any blocker:**
+1. Stop current work immediately
+2. Mark story status as `blocked` in playbook
+3. Add specific blocker reason to playbook
+4. Commit playbook changes
+5. Ask user for explicit resolution 
+6. Wait for user response - do not proceed
 
-### 6.2 Examples
+### 6.2 Specific Error Actions
 
-* **Test Failures**: stop, show error, ask user.
-* **Missing Dependencies**: stop, ask user whether to install/mock.
-* **Conflicting Requirements**: stop, ask user to resolve.
+**Test Failures:**
+1. Run tests again to confirm failure
+2. Copy exact error messages
+3. Mark story as `blocked` with reason: "Tests failing: [error summary]"
+4. Ask user: "Tests are failing with error: [exact error]. Should I fix this or wait for guidance?"
 
-### 6.3 Logging
+**Missing Dependencies:**
+1. Identify exactly what is missing
+2. Mark story as `blocked` with reason: "Missing dependency: [name]"
+3. Ask user: "Missing dependency [name]. Should I install it or mock it for testing?"
 
-* May mark a story as `blocked` in Playbook with a short note.
-* Must not continue to other stories until resolved.
+**Conflicting Requirements:**
+1. Document the specific conflict
+2. Mark story as `blocked` with reason: "Conflicting requirements: [details]"  
+3. Ask user: "Found conflicting requirements: [details]. Which approach should I follow?"
 
-### 6.4 No Autonomous Workarounds
+**Build/Compilation Failures:**
+1. Copy exact build error
+2. Mark story as `blocked` with reason: "Build failing: [error summary]"
+3. Ask user: "Build is failing with: [exact error]. How should I resolve this?"
 
-* No speculative changes.
-* Always wait for explicit user instruction.
+### 6.3 Prohibited Actions During Blocking
+
+**NEVER do these when blocked:**
+- Continue to next story
+- Make speculative fixes
+- Change requirements to work around issues
+- Skip failing tests
+- Implement workarounds without approval
+
+### 6.4 Unblocking Requirements
+
+**AI can only resume work after user provides:**
+- Explicit instruction on how to resolve the blocker
+- Modified requirements if applicable  
+- Confirmation that workaround approach is acceptable
 
 ---
 
