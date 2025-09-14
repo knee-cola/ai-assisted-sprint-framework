@@ -13,7 +13,7 @@ They ensure consistent execution, traceability, and alignment with user expectat
 - Passes all relevant tests
 - Can be committed independently
 
-**Blocked Status**: A user story cannot proceed due to:
+**Blocked Status (`🚫 blocked`)**: A user story cannot proceed due to:
 - Missing external dependencies 
 - Conflicting requirements
 - Failed tests that cannot be auto-fixed
@@ -191,7 +191,7 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 ### 4.1 Story Execution Workflow
 
 **STEP 1: Start Story**
-1. Verify previous story is `✅ done` or `blocked`
+1. Verify previous story is `✅ done` (if `🚫 blocked`, STOP - do not proceed)
 2. Change story status from `🔲 todo` to `🚧 in progress`
 3. Change sprint status to `🛠️ implementing US-#`
 4. Commit these playbook changes with first code changes for the story
@@ -213,14 +213,30 @@ For each LUW in the story:
 6. Commit these playbook updates
 7. Push final commit
 
-**STEP 4: Next Story**
-- Proceed to STEP 1 for next story
-- If no more stories, proceed to End-of-Sprint workflow
+**STEP 4: Next Story or Block Handling**
+- If current story is `✅ done`: proceed to STEP 1 for next story
+- If current story is `🚫 blocked`: STOP execution, notify user, wait for instructions
+- If no more stories and all are `✅ done`: proceed to End-of-Sprint workflow
 
-### 4.2 End-of-Sprint Workflow
+### 4.2 Blocking Workflow
+
+**When ANY story becomes `🚫 blocked`:**
+1. Mark story status as `🚫 blocked` with specific reason
+2. Commit playbook changes immediately
+3. Notify user with blocker details
+4. **STOP all sprint work** - do not proceed to next stories
+5. Wait for user to provide resolution instructions
+6. Only resume when user gives explicit unblocking guidance
+
+**Critical Rule: NO STORY PROGRESSION DURING BLOCKING**
+- Do not start new stories while any story is `🚫 blocked`
+- Do not attempt workarounds or fixes without user approval
+- Sprint execution is completely paused until all blocks are resolved
+
+### 4.3 End-of-Sprint Workflow
 
 **STEP 1: Final Verification**
-1. Verify all stories are `✅ done`
+1. Verify all stories are `✅ done` (if any are `🚫 blocked`, STOP and notify user)
 2. Run complete test suite
 3. Update any remaining documentation
 
@@ -261,7 +277,7 @@ For each LUW in the story:
 
 **MANDATORY STEPS when encountering any blocker:**
 1. Stop current work immediately
-2. Mark story status as `blocked` in playbook
+2. Mark story status as `🚫 blocked` in playbook
 3. Add specific blocker reason to playbook
 4. Commit playbook changes
 5. Ask user for explicit resolution 
@@ -272,27 +288,27 @@ For each LUW in the story:
 **Test Failures:**
 1. Run tests again to confirm failure
 2. Copy exact error messages
-3. Mark story as `blocked` with reason: "Tests failing: [error summary]"
+3. Mark story as `🚫 blocked` with reason: "Tests failing: [error summary]"
 4. Ask user: "Tests are failing with error: [exact error]. Should I fix this or wait for guidance?"
 
 **Missing Dependencies:**
 1. Identify exactly what is missing
-2. Mark story as `blocked` with reason: "Missing dependency: [name]"
+2. Mark story as `🚫 blocked` with reason: "Missing dependency: [name]"
 3. Ask user: "Missing dependency [name]. Should I install it or mock it for testing?"
 
 **Conflicting Requirements:**
 1. Document the specific conflict
-2. Mark story as `blocked` with reason: "Conflicting requirements: [details]"  
+2. Mark story as `🚫 blocked` with reason: "Conflicting requirements: [details]"  
 3. Ask user: "Found conflicting requirements: [details]. Which approach should I follow?"
 
 **Build/Compilation Failures:**
 1. Copy exact build error
-2. Mark story as `blocked` with reason: "Build failing: [error summary]"
+2. Mark story as `🚫 blocked` with reason: "Build failing: [error summary]"
 3. Ask user: "Build is failing with: [exact error]. How should I resolve this?"
 
 ### 6.3 Prohibited Actions During Blocking
 
-**NEVER do these when blocked:**
+**NEVER do these when `🚫 blocked`:**
 - Continue to next story
 - Make speculative fixes
 - Change requirements to work around issues
