@@ -34,6 +34,10 @@ This framework adds **Agile-style discipline**:
 
 ## 🚀 How to Use
 
+### Setup
+**First, copy the framework files to your project:**
+Copy the three framework files to your project's `docs/framework/` directory (or wherever you prefer). The framework works within your actual codebase where you want to implement AI-assisted sprints.
+
 ⚠️ **Important**: Before asking the AI to generate or execute a Sprint, always tell it to **read the framework files**:  
 - `sprint-playbook-template.md`  
 - `how-to-use-sprint-playbook-template.md`  
@@ -172,12 +176,12 @@ in order, with their messages.
 
 ## 📂 Recommended Folder Structure
 
-Use this layout to keep framework files separate from Sprint history:
+**Copy the framework files into your project** using this layout to keep framework files separate from Sprint history:
 
 - `docs/framework/` → Permanent reference files (templates, guides, rules).  
 - `docs/sprints/` → All generated Sprint Playbooks (kept for history/audit).  
 
-**Example:**
+**Example structure in your project:**
 ```plaintext
 .
 ├── README.md                              # Human-facing overview + usage guide
