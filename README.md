@@ -15,7 +15,6 @@ This framework lets a human user and an AI agent run software development sprint
 - **sprint-playbook-template.md** – Markdown structure for defining a Sprint.  
 - **how-to-use-sprint-playbook-template.md** – AI-facing guide for generating Playbooks.  
 - **sprint-implementation-guidelines.md** – AI-facing rules for execution.  
-- **sprint-implementation-quick-reference.md** – One-page checklist for execution.  
 - **sprint-playbook-example.md** – Example Playbook (formatting illustration only).  
 
 ---
@@ -40,7 +39,6 @@ This framework adds **Agile-style discipline**:
 - `sprint-playbook-template.md`  
 - `how-to-use-sprint-playbook-template.md`  
 - `sprint-implementation-guidelines.md`  
-- `sprint-implementation-quick-reference.md`  
 
 This ensures the AI is aligned with the framework rules and structure.
 
@@ -62,23 +60,15 @@ Users should be able to register, log in, and log out.
 ### Step 2 — Generate the Sprint Playbook
 Ask the AI to **read the framework files first**, then create your Sprint Playbook.
 
-**Important**: The AI should ask clarifying questions if anything is unclear. Don't let it proceed with assumptions.
-
-(Guardrail: examples are for formatting only—don't copy their tech choices.)
-
 **Prompt example**
 ```
 
 Read the following files before proceeding:
 
-* sprint-playbook-template.md
+* sprint-playbook-template.md  
 * how-to-use-sprint-playbook-template.md
 
 Now, create a Sprint Playbook for the goal I just described.
-Remember to:
-- Ask me specific questions if anything is unclear
-- Keep the scope minimal and focused only on what I requested
-- Create independent user stories that can be implemented separately
 
 ```
 
@@ -120,37 +110,28 @@ Proceed to execution using the Sprint Implementation Guidelines.
 ### Step 4 — Execute the Sprint
 Ask the AI to **read the implementation guidelines and your approved Playbook** before starting.
 
-**Key Points**:
-- The AI should work through user stories one at a time
-- It should stop and ask for help if it gets stuck
-- It should never merge branches or open pull requests
-- You remain in control throughout the process
-
 **Prompt example**
 ```
 
 Read the following files before proceeding:
 
 * sprint-implementation-guidelines.md
-* sprint-implementation-quick-reference.md
 * docs/sprints/sprint-08-auth.md   # (the approved Playbook for this Sprint)
 
-Follow the Sprint Implementation Guidelines strictly and stop when the Sprint is marked as done.
+Execute the Sprint following the implementation guidelines.
 
 ```
 
-**When the AI gets blocked**: It should stop all work and ask you for guidance. Don't let it continue with other stories until the blocker is resolved.
+**When the AI gets blocked**:
 
-**Prompt example (when blocked)**
+**Prompt example**
 ```
 
-You've hit a blocker? Please show me:
+Show me:
 1. The exact error message
-2. Which user story is affected
+2. Which user story is affected  
 3. What step failed
 4. Current status of all stories
-
-Do not work on any other stories until we resolve this.
 
 ```
 
@@ -162,8 +143,6 @@ When the AI marks the Sprint as complete:
 - Check that the Playbook shows all stories as complete
 - Verify the functionality works as expected
 - **You** merge the branch into `main`
-
-**Important**: Always handle merging yourself. Never let the AI merge or open pull requests.
 
 **Prompt example (final check)**
 ```
@@ -208,7 +187,6 @@ Use this layout to keep framework files separate from Sprint history:
 │   │   ├── sprint-playbook-template.md
 │   │   ├── how-to-use-sprint-playbook-template.md
 │   │   ├── sprint-implementation-guidelines.md
-│   │   ├── sprint-implementation-quick-reference.md
 │   └── sprint-playbook-example.md
 │       └── sprints/                        # All actual Sprint Playbooks
 │           ├── sprint-01-initial-setup.md
