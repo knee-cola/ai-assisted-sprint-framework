@@ -83,6 +83,11 @@ Your role as AI agent is to:
   * Have **acceptance criteria** (conditions that must be met).
   * Include a **Definition of Done** (code implemented, tested, docs updated).
 * Keep stories small enough to fit into 1–2 commits each.
+* User stories will track through these status states:
+  * `🔲 todo` - Not yet started
+  * `🚧 in progress` - Currently being implemented  
+  * `🚫 blocked` - Cannot proceed (requires user intervention)
+  * `✅ done` - Fully completed per DoD
 
 ---
 
@@ -105,12 +110,18 @@ Your role as AI agent is to:
 
 * Attach a DoD to each **user story**.
 * Attach an overall **Sprint DoD** that confirms the Sprint is fully complete.
-* Ensure DoDs cover:
-
-  * Implementation.
-  * Testing.
-  * Documentation.
-  * Branch/commit flow.
+* Structure Sprint DoD with clear separation:
+  
+  **AI-Responsible Items** (items AI can verify and tick):
+  * Code implementation and testing
+  * Documentation updates  
+  * Code commits and branch pushes
+  * Sprint status updates
+  
+  **User-Only Items** (items only user can verify):
+  * Branch merging into main
+  * Production deployments
+  * External system integrations
 
 ---
 
