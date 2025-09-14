@@ -61,8 +61,14 @@ Users should be able to register, log in, and log out.
 
 ### Step 2 — Generate the Sprint Playbook
 Ask the AI to **read the template + how-to guide** before generating the Playbook.  
-It should ask clarifying questions until scope is clear.  
-(Guardrail: examples are for formatting only—don’t copy their tech choices.)
+
+**Important**: The AI must follow the mandatory process in the how-to guide:
+- Stop immediately if requirements are unclear or contradictory
+- Ask specific clarifying questions with concrete examples
+- Wait for your response before proceeding
+- Only create the playbook when goals are completely unambiguous
+
+(Guardrail: examples are for formatting only—don't copy their tech choices.)
 
 **Prompt example**
 ```
@@ -73,8 +79,11 @@ Read the following files before proceeding:
 * how-to-use-sprint-playbook-template.md
 
 Now, create a Sprint Playbook for the goal I just described.
-If anything is ambiguous or contradictory, ask me questions
-until the scope is clear. Keep the plan minimal and focused.
+Follow the mandatory process in the how-to guide:
+- If ANYTHING is unclear, stop immediately and ask specific questions
+- Do not make assumptions or proceed with ambiguous requirements
+- Follow the exact Sprint ID selection rules
+- Keep the plan minimal and focused on the stated goal only
 
 ```
 
