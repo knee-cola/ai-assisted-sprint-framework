@@ -1,0 +1,1 @@
+- @README.md should be a guide for the user on how to use this framework in a real-world scenario. it should line out the expected workflow with examples of prompts the user should be giving the AI agent and which files from this framework should he refference in these prompts.
