@@ -178,7 +178,49 @@ If no prior Playbooks exist in `docs/sprints/`, start at `01`; otherwise increme
 
 * Run relevant tests locally before committing.
 
-### 3.5 Prohibited
+### 3.5 Manual Testing Requirements
+
+**When manual testing is required** (UI functionality, user workflows, integration behavior):
+
+1. **Stop implementation and request manual testing**
+2. **Provide clear testing instructions** to the user:
+   * Exact steps to perform (click buttons, enter data, navigate pages)
+   * Expected behavior and outcomes
+   * What to look for (success messages, UI changes, data persistence)
+   * Specific error conditions to verify
+
+3. **Wait for user feedback** before proceeding:
+   * User confirms: "Test passed" → continue to next step
+   * User reports failure: get exact description and error messages → iterate to fix
+
+4. **Handle test failures**:
+   * Analyze user's failure description and error messages
+   * Make targeted fixes based on specific issues reported
+   * Request re-testing of the same functionality
+   * Repeat until user confirms test passes
+
+**Example manual test request:**
+```
+Manual testing required for login functionality:
+
+Please test the following:
+1. Navigate to /login page
+2. Enter valid credentials (username: test@example.com, password: password123)
+3. Click "Login" button
+
+Expected behavior:
+- Should redirect to dashboard page
+- Should show "Welcome, Test User" message
+- Should persist login state on page refresh
+
+Please report:
+- Did the test pass as expected?
+- If failed, what exactly happened?
+- Any error messages displayed?
+- Current URL after attempting login?
+```
+
+### 3.6 Prohibited
 
 * No large-scale refactors unless explicitly requested.
 * No new frameworks or test harnesses.
@@ -201,17 +243,21 @@ For each LUW in the story:
 1. Write code for one logical unit of work
 2. Write tests if required by story DoD
 3. Run tests and fix any failures
-4. Commit LUW with conventional commit message including "Refs: US-#"
-5. Push commit to branch
+4. **If manual testing is required**: STOP and request user testing (see Manual Testing Requirements)
+5. Wait for user feedback and iterate if test failures reported
+6. Commit LUW with conventional commit message including "Refs: US-#"
+7. Push commit to branch
 
 **STEP 3: Complete Story**
 1. Verify all story acceptance criteria are met
 2. Verify all AI-responsible DoD items are complete
 3. Run final test suite 
-4. Update story status to `✅ done`
-5. Tick completed AI-responsible DoD checkboxes 
-6. Commit these playbook updates
-7. Push final commit
+4. **If story requires manual testing**: request final user acceptance testing
+5. Wait for user confirmation that all manual tests pass
+6. Update story status to `✅ done`
+7. Tick completed AI-responsible DoD checkboxes 
+8. Commit these playbook updates
+9. Push final commit
 
 **STEP 4: Next Story or Block Handling**
 - If current story is `✅ done`: proceed to STEP 1 for next story
@@ -285,11 +331,18 @@ For each LUW in the story:
 
 ### 6.2 Specific Error Actions
 
-**Test Failures:**
+**Automated Test Failures:**
 1. Run tests again to confirm failure
 2. Copy exact error messages
 3. Mark story as `🚫 blocked` with reason: "Tests failing: [error summary]"
 4. Ask user: "Tests are failing with error: [exact error]. Should I fix this or wait for guidance?"
+
+**Manual Test Failures:**
+1. Analyze user's failure description and error messages
+2. If the failure is complex or unclear: Mark story as `🚫 blocked` with reason: "Manual testing failed: [user description]"
+3. If the failure is clear and fixable: Make targeted fixes and request re-testing
+4. Ask user: "I've made fixes for the reported issue. Please re-test the same functionality."
+5. If multiple re-test attempts fail: Mark as `🚫 blocked` and ask for guidance
 
 **Missing Dependencies:**
 1. Identify exactly what is missing
