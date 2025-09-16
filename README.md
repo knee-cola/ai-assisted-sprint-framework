@@ -53,26 +53,15 @@ Tell the AI what you want at a high level.
 **Prompt example**
 ```
 
-I want this Sprint to add user authentication to my task management app.
+I want to start a new Sprint to add user authentication to my task management app.
 Users should be able to register, log in, and log out.
-
-```
-
----
-
-### Step 2 — Generate the Sprint Playbook
-Ask the AI to **read the framework files first**, then create your Sprint Playbook.
-
-**Prompt example**
-```
 
 Read the following files before proceeding:
 
-* sprint-playbook-template.md  
-* how-to-use-sprint-playbook-template.md
+* @docs/framework/sprint-playbook-template.md  
+* @docs/framework/how-to-use-sprint-playbook-template.md
 
 Now, create a Sprint Playbook for the goal I just described.
-
 ```
 
 **Revision example**
@@ -88,7 +77,7 @@ Update the Sprint Playbook:
 
 ---
 
-### Step 3 — Approve the Playbook
+### Step 2 — Approve the Playbook
 Review the generated Playbook carefully:
 
 **✅ Quick Validation Checklist**:
@@ -110,7 +99,7 @@ Proceed to execution using the Sprint Implementation Guidelines.
 
 ---
 
-### Step 4 — Execute the Sprint
+### Step 3 — Execute the Sprint
 Ask the AI to **read the implementation guidelines and your approved Playbook** before starting.
 
 **Prompt example**
@@ -140,7 +129,7 @@ Show me:
 
 ---
 
-### Step 5 — Review & Merge
+### Step 4 — Review & Merge
 When the AI marks the Sprint as complete:
 - Review the Sprint branch and all commits
 - Check that the Playbook shows all stories as complete
